@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- 고양이 머리 -->
+  <ellipse cx="100" cy="80" rx="50" ry="45" fill="#FF8C42" stroke="#333" stroke-width="2"/>
+
+  <!-- 고양이 귀 -->
+  <polygon points="70,50 85,25 100,50" fill="#FF8C42" stroke="#333" stroke-width="2"/>
+  <polygon points="100,50 115,25 130,50" fill="#FF8C42" stroke="#333" stroke-width="2"/>
+  <polygon points="75,45 85,35 95,45" fill="#FFB07A"/>
+  <polygon points="105,45 115,35 125,45" fill="#FFB07A"/>
+
+  <!-- 고양이 눈 -->
+  <ellipse cx="85" cy="75" rx="8" ry="12" fill="#000"/>
+  <ellipse cx="115" cy="75" rx="8" ry="12" fill="#000"/>
+  <ellipse cx="87" cy="72" rx="3" ry="4" fill="#FFF"/>
+  <ellipse cx="117" cy="72" rx="3" ry="4" fill="#FFF"/>
+
+  <!-- 고양이 코 -->
+  <polygon points="100,85 95,90 105,90" fill="#FF69B4"/>
+
+  <!-- 고양이 입 -->
+  <path d="M 100 90 Q 90 95 85 90" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M 100 90 Q 110 95 115 90" stroke="#333" stroke-width="2" fill="none"/>
+
+  <!-- 고양이 수염 -->
+  <line x1="60" y1="80" x2="80" y2="85" stroke="#333" stroke-width="1"/>
+  <line x1="60" y1="90" x2="80" y2="90" stroke="#333" stroke-width="1"/>
+  <line x1="120" y1="85" x2="140" y2="80" stroke="#333" stroke-width="1"/>
+  <line x1="120" y1="90" x2="140" y2="90" stroke="#333" stroke-width="1"/>
+
+  <!-- 고양이 몸통 -->
+  <ellipse cx="100" cy="140" rx="35" ry="50" fill="#FF8C42" stroke="#333" stroke-width="2"/>
+
+  <!-- 고양이 배 -->
+  <ellipse cx="100" cy="150" rx="20" ry="30" fill="#FFE4B5"/>
+
+  <!-- 고양이 앞다리 -->
+  <ellipse cx="80" cy="175" rx="8" ry="20" fill="#FF8C42" stroke="#333" stroke-width="2"/>
+  <ellipse cx="120" cy="175" rx="8" ry="20" fill="#FF8C42" stroke="#333" stroke-width="2"/>
+
+  <!-- 고양이 발 -->
+  <ellipse cx="80" cy="190" rx="10" ry="6" fill="#333"/>
+  <ellipse cx="120" cy="190" rx="10" ry="6" fill="#333"/>
+
+  <!-- 고양이 꼬리 -->
+  <path d="M 130 130 Q 160 120 170 150 Q 160 180 140 170" stroke="#FF8C42" stroke-width="15" fill="none" stroke-linecap="round"/>
+</svg>

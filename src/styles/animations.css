@@ -1,0 +1,411 @@
+/* 춤추는 고양이 애니메이션 */
+@keyframes catDance {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  15% {
+    transform: translateY(-20px) rotate(-5deg) scale(1.05);
+  }
+  25% {
+    transform: translateY(-30px) rotate(5deg) scale(1.1);
+  }
+  35% {
+    transform: translateY(-10px) rotate(-3deg) scale(0.95);
+  }
+  50% {
+    transform: translateY(-25px) rotate(8deg) scale(1.08);
+  }
+  65% {
+    transform: translateY(-15px) rotate(-6deg) scale(1.02);
+  }
+  80% {
+    transform: translateY(-35px) rotate(4deg) scale(1.12);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* 컨테이너 스타일 */
+.dancing-cat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.cat-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cat-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cat-image {
+  width: 200px;
+  height: 200px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* 춤추는 애니메이션 적용 */
+.cat-wrapper.dancing .cat-image {
+  animation: catDance var(--animation-duration, 1.5s) ease-in-out infinite;
+}
+
+/* 컨트롤 버튼 스타일 */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.main-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.speed-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.speed-label {
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.quick-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.dance-btn {
+  background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dance-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: pulse 0.6s ease-in-out;
+}
+
+.dance-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dance-btn.active {
+  background: linear-gradient(45deg, #4ECDC4, #45B7AF);
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+/* 속도 조절 버튼 */
+.speed-btn {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.speed-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.speed-btn.active {
+  background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* 빠른 제어 버튼 */
+.control-btn {
+  background: linear-gradient(45deg, #96CEB4, #FFEAA7);
+  border: none;
+  color: #2d3436;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.control-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.control-btn.start:not(:disabled) {
+  background: linear-gradient(45deg, #00b894, #00cec9);
+  color: white;
+}
+
+.control-btn.stop:not(:disabled) {
+  background: linear-gradient(45deg, #e17055, #fdcb6e);
+  color: white;
+}
+
+/* 정보 텍스트 스타일 */
+.dance-info {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dance-info p {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.keyboard-info {
+  margin-top: 10px;
+}
+
+.keyboard-info small {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+kbd {
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  color: #333;
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+/* 애니메이션 성능 최적화 */
+.cat-wrapper.dancing {
+  will-change: transform;
+}
+
+.cat-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 재미있는 호버 효과 */
+.cat-wrapper:not(.dancing):hover .cat-image {
+  animation: bounce 0.6s ease-in-out;
+}
+
+/* 반응형 디자인 - 모바일 */
+@media (max-width: 768px) {
+  .dancing-cat-container {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .cat-wrapper {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .cat-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .dance-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .dance-info p {
+    font-size: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .app-header p {
+    font-size: 1.1rem;
+  }
+}
+
+/* 반응형 디자인 - 작은 모바일 */
+@media (max-width: 480px) {
+  .dancing-cat-container {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .cat-wrapper {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .cat-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .dance-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .dance-info {
+    padding: 12px 20px;
+    border-radius: 12px;
+  }
+
+  .dance-info p {
+    font-size: 0.9rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+}
+
+/* 반응형 디자인 - 태블릿 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cat-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .dance-btn {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+
+  .app-header h1 {
+    font-size: 2.8rem;
+  }
+}
+
+/* 반응형 디자인 - 큰 화면 */
+@media (min-width: 1025px) {
+  .cat-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .dance-btn {
+    padding: 16px 32px;
+    font-size: 1.3rem;
+  }
+
+  .app-header h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+  .dance-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .cat-wrapper:hover {
+    transform: none;
+  }
+}
+
+/* 접근성 - 애니메이션 비활성화 선호 시 */
+@media (prefers-reduced-motion: reduce) {
+  .cat-wrapper.dancing .cat-image {
+    animation: none;
+  }
+
+  .dance-btn:hover {
+    animation: none;
+    transform: translateY(-1px);
+  }
+
+  .dance-btn.active {
+    animation: none;
+  }
+
+  .cat-wrapper:not(.dancing):hover .cat-image {
+    animation: none;
+  }
+}
